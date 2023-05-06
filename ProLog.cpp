@@ -3,136 +3,83 @@
 using namespace std;
 using namespace funPro;
 int main(){
-    int fil=0, col=0, prop, tab[32][100], p=0, q=1, r=2, s=3;
+    int fil, col, prop, pmid, tab[32][100], p=0, q=1, r=2, s=3;
     cout<<"Programa que genera tablas de verdad de 4 proposiciones "<<endl;
     cout<<"Introdusca cuantas proposiciones simples desea utilizar"<<endl;
     cin>>prop;
+    system("cls");
 
-    ///Inicio 3 Proposiciones
+    //Inicio Valores Segun Propociciones
     if(prop == 1){
-        //Ingresar datos a la tabla
-        fil=1, col=0;
-        for(int i=0;i<=fil;i++){
-			if(i==0){
-                tab[i][p]=0;
-            }else{
-                tab[i][p]=1;
-            }
-        }   
-    //Imprimir tabla
-        system("cls");
+        col = 0;
+        fil = 1;
+        pmid = 0;
         cout<<"p"<<endl;
-        for(int i=0;i<=fil;i++){
-		for(int j=0;j<=col;j++){
-			cout<<tab[i][j]<<endl;
-		}
-	    }
-    }//Final 2 Proposiciones
-
-    //Inicio 3 Proposiciones
-    if(prop == 2){
-        fil=3, col = 1;
-        for(int i=0;i<=fil;i++){
-			if(i<=1){
-                tab[i][p]=0;
-            }else{
-                tab[i][p]=1;
-            }
-        }
-        for(int i=0;i<=fil;i++){
-            if(q4(i)==true){
-                tab[i][q]=1;
-            }else{
-                tab[i][q]=0;
-            }
-        }
-
-        system("cls");
+    }else if(prop == 2){
+        col = 1;
+        fil = 3;
+        pmid = 1;
         cout<<"p q"<<endl;
-        for(int i=0;i<=fil;i++){
-		for(int j=0;j<=col;j++){
-			cout<<tab[i][j]<<" ";
-		}
-        cout<<endl;
-	    }
-    
-    }//Final 2 Proposiciones
-
-    //Inicio 3 Proposiciones
-    if(prop == 3){
-        fil=7, col = 2;
-        for(int i=0;i<=fil;i++){
-			if(i<=3){
-                tab[i][p]=0;
-            }else{
-                tab[i][p]=1;
-            }
-        }
-        for(int i=0;i<=fil;i++){
-            if(q8(i)==true){
-                tab[i][q]=1;
-            }else{
-                tab[i][q]=0;
-            }
-        }
-        for(int i=0;i<=fil;i++){
-            if(i%2==0){
-                tab[i][r]=0;
-            }else{
-                tab[i][r]=1;
-            }
-        }
-
-        system("cls");
+    }else if(prop == 3){
+        col = 2;
+        fil = 7;
+        pmid = 3;
         cout<<"p q r"<<endl;
-        for(int i=0;i<=fil;i++){
-		for(int j=0;j<=col;j++){
-			cout<<tab[i][j]<<" ";
-		}
-        cout<<endl;
-	    }
-    }//Final 3 Proposiciones
-
-    //Inicio 4 Proposiciones
-    if(prop == 4){
-        fil=15, col = 3;
-        for(int i=0;i<=fil;i++){
-			if(i<=7){
-                tab[i][p]=0;
-            }else{
-                tab[i][p]=1;
-            }
-        }
-        for(int i=0;i<=fil;i++){
-            if(q16(i)==true){
-                tab[i][q]=1;
-            }else{
-                tab[i][q]=0;
-            }
-        }
-        for(int i=0;i<=fil;i++){
-            if(r16(i)==true){
-                tab[i][r]=1;
-            }else{
-                tab[i][r]=0;
-            }
-        }
-        for(int i=0;i<=fil;i++){
-            if(i%2==0){
-                tab[i][s]=0;
-            }else{
-                tab[i][s]=1;
-            }
-        }
-
-        system("cls");
+    }else{
+        col = 3;
+        fil = 15;
+        pmid = 7;
         cout<<"p q r s"<<endl;
+    }
+    //Final Valores Segun Propociciones
+
+    //Inicio Llenar Tabla p
+    for(int i=0;i<=fil;i++){
+		if(i<=pmid){
+            tab[i][p]=0;
+        }else{
+            tab[i][p]=1;
+        }
+    }
+    //Final Llenar Tabla p
+    
+    //Inicio Llenar Tabla q
+    for(int i=0;i<=fil;i++){
+        if(pq(i,prop)==true){
+            tab[i][q]=1;
+        }else{
+            tab[i][q]=0;
+        }
+    }
+    //Final Llenar Tabla q
+
+    //Inicio Llenar Tabla r
+    for(int i=0;i<=fil;i++){
+        if(pr(i,prop)==true){
+            tab[i][r]=1;
+        }else{
+            tab[i][r]=0;
+        }
+    }
+    //Final Llenar Tabla r
+
+    //Inicio Llenar Tabla s
+    for(int i=0;i<=fil;i++){
+        if(i%2==0){
+            tab[i][s]=0;
+        }else{
+            tab[i][s]=1;
+        }
+    }
+    //Final Llenar Tabla s
+
+    //Inicio Imprimir Tabla
         for(int i=0;i<=fil;i++){
 		for(int j=0;j<=col;j++){
 			cout<<tab[i][j]<<" ";
 		}
         cout<<endl;
-	    }
-    }//Final 4 Proposiciones
+        }
+    //Fin imprimir Tabla
     return 0;
 }
