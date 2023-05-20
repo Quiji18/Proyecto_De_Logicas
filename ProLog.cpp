@@ -3,7 +3,8 @@
 using namespace std;
 using namespace funPro;
 int main(){
-    int fil, col, prop, pmid, tab[32][100], p=0, q=1, r=2, s=3;
+    string props;
+    int fil, col, prop, pmid, tab[32][50], p=0, q=1, r=2, s=3, op, a, b, c, d, cont=1, x, y, z;
     cout<<"Programa que genera tablas de verdad de 4 proposiciones "<<endl;
     cout<<"Introdusca cuantas proposiciones simples desea utilizar"<<endl;
     cin>>prop;
@@ -14,22 +15,22 @@ int main(){
         col = 0;
         fil = 1;
         pmid = 0;
-        cout<<"p"<<endl;
+        props = "p";
     }else if(prop == 2){
         col = 1;
         fil = 3;
         pmid = 1;
-        cout<<"p q"<<endl;
+        props = "p q";
     }else if(prop == 3){
         col = 2;
         fil = 7;
         pmid = 3;
-        cout<<"p q r"<<endl;
+        props = "p q r";
     }else{
         col = 3;
         fil = 15;
         pmid = 7;
-        cout<<"p q r s"<<endl;
+        props = "p q r s";
     }
     //Final Valores Segun Propociciones
 
@@ -70,8 +71,27 @@ int main(){
         }else{
             tab[i][s]=1;
         }
-    }
+    }system("cls");
     //Final Llenar Tabla s
+    cout<<"Ingrese que proposicion desea ingresar"<<endl;
+    cout<<"Se le dara las opciones con un ejemplo"<<endl;
+    cout<<"1. Proposicion simple... p"<<endl<<"2. Dos propociciones... pVq"<<endl<<"3. Dos grupos de dos proposiciones... (pVq)^(qVp)"<<endl;
+    cin>>op;
+    switch (op){
+    case 1:
+        cout<<"Ingrese la propocicion que desea evaluar:";
+        cout<<props<<":"<<endl;
+        cin>>a;
+        break;
+    case 2:
+        cout<<"Ingrese las propociccines que desea evaluar: "<<endl;
+        cout<<props<<":"<<endl;
+        cin>>a>>b;
+        break;
+    default:
+        cout<<"Opcion ingresada no valida..."<<endl;
+        break;
+    }
 
     //Inicio Imprimir Tabla
         for(int i=0;i<=fil;i++){
@@ -82,4 +102,6 @@ int main(){
         }
     //Fin imprimir Tabla
     return 0;
+
+    
 }

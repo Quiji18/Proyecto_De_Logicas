@@ -22,4 +22,26 @@ bool pr(int r, int prop){
     return val;
 }
 
+bool prop2(int a, int b, int x){
+    bool val = false;
+    switch (x){
+    case 9:
+        if(a==0&&b==0){
+            val=false;
+        }else{
+            val=true;
+        }
+        break;
+    case 10:
+        if(a==1&&b==1){
+            val=;
+        }else{
+
+        }
+        break;
+    default:
+        break;
+    }
+    return val;
+}
 }
