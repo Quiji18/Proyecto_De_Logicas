@@ -4,7 +4,8 @@ using namespace std;
 using namespace funPro;
 int main(){
     string props;
-    int fil, col, prop, pmid, tab[32][50], p=0, q=1, r=2, s=3, op, a, b, c, cont=1, x, y, z, resv=0;
+    int p=0, np=1, q=2, nq=3, r=4, nr=5, s=6, ns=7;
+    int fil, col, prop, pmid, tab[32][50], op, a, b, c, cont=1, x, resv=0, colf, resant;
     do{
     system("cls");
     cout<<"Programa que genera tablas de verdad de 4 proposiciones "<<endl;
@@ -13,31 +14,30 @@ int main(){
     system("cls");
 
     //Inicio Valores Segun Propociciones
-    switch (prop)
-    {
+    switch (prop){
     case 1:
-        col = 0;
+        col = 1;
         fil = 1;
         pmid = 0;
-        props = "p";
+        props = "p ~p";
         break;
     case 2:
-        col = 1;
+        col = 3;
         fil = 3;
         pmid = 1;
-        props = "p q";
+        props = "p~p q~q";
         break;
     case 3:
-        col = 2;
+        col = 5;
         fil = 7;
         pmid = 3;
-        props = "p q r";
+        props = "p~p q~q r~r";
         break;
     case 4:
-        col = 3;
+        col = 7;
         fil = 15;
         pmid = 7;
-        props = "p q r s";
+        props = "p~p q~q r~r s~s";
         break;
     default:
         cout<<"Opcion ingresada no valida..."<<endl;
@@ -45,7 +45,6 @@ int main(){
         break;
     }
     }while (prop<1||prop>4);
-    
     //Final Valores Segun Propociciones
 
     //Inicio Llenar Tabla p
@@ -85,10 +84,51 @@ int main(){
         }else{
             tab[i][s]=1;
         }
-    }system("cls");
+    }
     //Final Llenar Tabla s
+
+    //Inicio Llenar Tabla ~p
+    for(int i=0;i<=fil;i++){
+        if(tab[i][p]==0){
+            tab[i][np]=1;
+        }else{
+            tab[i][np]=0;
+        }
+    }
+    //FInal Llenar Tabla ~p
+
+    //Inicio Llenar Tabla ~q
+    for(int i=0;i<=fil;i++){
+        if(tab[i][q]==0){
+            tab[i][nq]=1;
+        }else{
+            tab[i][nq]=0;
+        }
+    }
+    //Final Llenar Tabla ~q
     
+    //Inicio Llenar Tabla ~r
+    for(int i=0;i<=fil;i++){
+        if(tab[i][r]==0){
+            tab[i][nr]=1;
+        }else{
+            tab[i][nr]=0;
+        }
+    }
+    //Final Llenar Tabla ~r
+
+    //Inicio Llenar Tabla ~s
+    for(int i=0;i<=fil;i++){
+        if(tab[i][s]==0){
+            tab[i][ns]=1;
+        }else{
+            tab[i][ns]=0;
+        }
+    }
+    //Final Llenar Tabla ~s
+
     //Inicio Ingresando primera parte de la propocicion compuesta
+    system("cls");
     cout<<"Ingrese que proposicion desea ingresar"<<endl;
     cout<<"Se le dara las opciones con un ejemplo"<<endl;
     cout<<"1. Proposicion simple... p"<<endl<<"2. Dos propociciones... pVq"<<endl;
@@ -120,14 +160,20 @@ int main(){
     }
     //Final Ingresando primera parte de la propocicion compuesta
 
+    //Inicio Agregar más proposiciones
+
+    //Final Agregar más proposiciones
+
     //Inicio Imprimir Tabla
     cout<<props<<endl;
         for(int i=0;i<=fil;i++){
-		for(int j=0;j<=col+resv;j++){
+		for(int j=0;j<=(col+resv);j++){
 			cout<<tab[i][j]<<" ";
 		}
         cout<<endl;
         }
     //Fin imprimir Tabla
+
+
     return 0;
 }

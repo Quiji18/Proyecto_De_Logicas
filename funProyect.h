@@ -59,19 +59,19 @@ void valprop(int propociciones){
     switch (propociciones){
     case 1:
         cout<<endl<<"Valores de proposiciones simples a evaluar"<<endl<<"Ingrese sus valores numericos"<<endl;
-        cout<<" p = 0    ~p = 4"<<endl;
+        cout<<" p = 0    ~p = 1"<<endl;
         break;
     case 2:
         cout<<endl<<"Valores de proposiciones simples a evaluar"<<endl<<"Ingrese sus valores numericos"<<endl;
-        cout<<" p = 0     q = 1    ~p = 4    ~q = 5"<<endl;
+        cout<<" p = 0    ~p = 1     q = 2    ~q = 3"<<endl;
         break;
     case 3:
         cout<<endl<<"Valores de proposiciones simples a evaluar"<<endl<<"Ingrese sus valores numericos"<<endl;
-        cout<<" p = 0     q = 1     r = 2"<<endl<<"~p = 4    ~q = 5    ~r = 6"<<endl;
+        cout<<" p = 0     q = 2     r = 4"<<endl<<"~p = 1    ~q = 3    ~r = 5"<<endl;
         break;
     case 4:
         cout<<endl<<"Valores de proposiciones simples a evaluar"<<endl<<"Ingrese sus valores numericos"<<endl;
-        cout<<" p = 0     q = 1     r = 2     s = 3"<<endl<<"~p = 4    ~q = 5    ~r = 6    ~s = 7"<<endl;
+        cout<<" p = 0     q = 2     r = 4     s = 6"<<endl<<"~p = 1    ~q = 3    ~r = 5    ~s = 7"<<endl;
         break;
     }
 }
